@@ -12,10 +12,13 @@ public class ExpenseTrackerModel {
 
   // This is applying the Observer design pattern.                          
   // Specifically, this is the Observable class. 
+
+  private List<ExpenseTrackerModelListener> listeners;
     
   public ExpenseTrackerModel() {
     transactions = new ArrayList<Transaction>();
     matchedFilterIndices = new ArrayList<Integer>();
+    listeners = new ArrayList<ExpenseTrackerModelListener>();
   }
 
   public void addTransaction(Transaction t) {
@@ -26,12 +29,14 @@ public class ExpenseTrackerModel {
     transactions.add(t);
     // The previous filter is no longer valid.
     matchedFilterIndices.clear();
+    this.stateChanged();
   }
 
   public void removeTransaction(Transaction t) {
     transactions.remove(t);
     // The previous filter is no longer valid.
     matchedFilterIndices.clear();
+    this.stateChanged();
   }
 
   public List<Transaction> getTransactions() {
@@ -52,6 +57,7 @@ public class ExpenseTrackerModel {
       // For encapsulation, copy in the input list 
       this.matchedFilterIndices.clear();
       this.matchedFilterIndices.addAll(newMatchedFilterIndices);
+      this.stateChanged();
   }
 
   public List<Integer> getMatchedFilterIndices() {
@@ -73,26 +79,33 @@ public class ExpenseTrackerModel {
       // For the Observable class, this is one of the methods.
       //
       // TODO
-      return false;
+      if (listener == null || containsListener(listener)) {
+        return false;  
+      }
+      listeners.add(listener);
+      return true;
   }
 
   public int numberOfListeners() {
       // For testing, this is one of the methods.
       //
-      //TODO
-      return 0;
+      // TODO
+      return listeners.size();
   }
 
   public boolean containsListener(ExpenseTrackerModelListener listener) {
       // For testing, this is one of the methods.
       //
-      //TODO
-      return false;
+      // TODO
+      return listeners.contains(listener);
   }
 
   protected void stateChanged() {
       // For the Observable class, this is one of the methods.
       //
-      //TODO
+      // TODO
+      for (ExpenseTrackerModelListener listener: listeners) {
+        listener.update(this);
+      }
   }
 }
