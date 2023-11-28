@@ -8,6 +8,16 @@ import model.Filter.CategoryFilter;
 public class ExpenseTrackerApp {
 
   /**
+   * Creates a GUI that includes:
+   * - a text field that allows you to enter number corresponding to the amount of the transaction 
+   * - a text field that allows you to enter category of the transaction
+   * - a table that shows all the added transactions
+   * - a button to add new transactions into the table
+   * - a button that allows you to enter a filter amount and highlights the transactions that have matching filter amount
+   * - a button that allows you to enter a filter category and highlights the transactions that have matching filter category
+   * - a button which allows you to delete the selected transaction from the table
+   * 
+   * For the MVC architecture pattern, these are the view and the controller. 
    * @param args
    */
   public static void main(String[] args) {
