@@ -1,3 +1,7 @@
+1. Java API view (e.g., javadoc, class outline)
+
+![](api_docs.png)
+
 2. JUnit test runner showing all of your test cases passing
 ![](./unit_tests_all_pass.png)
 
@@ -11,5 +15,3 @@
 
 5. Debugger showing the program execution state (usually the variables view) after calling the undo (show the model and/or UI widgets are empty again)
 ![](./after_undo_part.png)
-
-13e5910 Modularity: comment out all controller updating view lines
