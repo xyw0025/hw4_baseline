@@ -1,3 +1,8 @@
+e47ce0f Doc: change gitlog path
+317fdfc Doc: Model javadoc
+9ccbb57 Refactor the API doc
+0e734e5 Feat: Added the API documentation
+2653cff Report: add gitlog.txt
 3ec18b9 Wen/modularity (#1)
 873c1b8 API documentation (#2)
 a37a4c8 Update TestExample.java
