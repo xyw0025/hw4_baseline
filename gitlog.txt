@@ -1,0 +1,13 @@
+e47ce0f Doc: change gitlog path
+317fdfc Doc: Model javadoc
+9ccbb57 Refactor the API doc
+0e734e5 Feat: Added the API documentation
+2653cff Report: add gitlog.txt
+3ec18b9 Wen/modularity (#1)
+873c1b8 API documentation (#2)
+a37a4c8 Update TestExample.java
+27cde1b Update TestExample.java
+026b11d For the MVC architecture pattern, the Observer design pattern will now be used to update the View after the Model is manipulated by the Controller. Started to modify the Model to be the Observable. Added the ExpenseTrackerModelListener interface to be the Observer interface. Modified the ExpenseTrackerView class to be a concrete Observer class. Started to modify the Controller class to apply this pattern. For test driven development, modified the test suite to add the register test cases. One of them is currently failing.
+842d5a8 Modified the Model to store the matched filter indices. Modified the Controller to use these indices.
+3208179 Copied over the hw3-solution to the hw4_baseline.
+c66f84f Create README.md
