@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Model is applying a Observer pattern
+ * This is the has-a relationship with the Observer class  
+ */
 public class ExpenseTrackerModel {
 
   //encapsulation - data integrity
@@ -17,7 +21,10 @@ public class ExpenseTrackerModel {
     transactions = new ArrayList<Transaction>();
     matchedFilterIndices = new ArrayList<Integer>();
   }
-
+  /**
+   * Performs the task of adding a transaction to the list of existing transactions
+   * @param t Transaction that is being added
+   */
   public void addTransaction(Transaction t) {
     // Perform input validation to guarantee that all transactions added are non-null.
     if (t == null) {
@@ -27,18 +34,28 @@ public class ExpenseTrackerModel {
     // The previous filter is no longer valid.
     matchedFilterIndices.clear();
   }
-
+  /**
+   * Function to remove a transaction from the list of transactions
+   * @param t - Transaction to be removed
+   */
   public void removeTransaction(Transaction t) {
     transactions.remove(t);
     // The previous filter is no longer valid.
     matchedFilterIndices.clear();
   }
 
+  /**
+   * Returns the current list of existing transactions
+   * @return a list of transactions
+   */
   public List<Transaction> getTransactions() {
     //encapsulation - data integrity
     return Collections.unmodifiableList(new ArrayList<>(transactions));
   }
-
+  /**
+   * Gets a list of all transactions that match the filter indices
+   * @param newMatchedFilterIndices contains the list of indices of matched transactions
+   */
   public void setMatchedFilterIndices(List<Integer> newMatchedFilterIndices) {
       // Perform input validation
       if (newMatchedFilterIndices == null) {
@@ -54,6 +71,10 @@ public class ExpenseTrackerModel {
       this.matchedFilterIndices.addAll(newMatchedFilterIndices);
   }
 
+  /**
+   * Returns a copy of all the matched filter indices
+   * @return Copy of matched indices
+   */
   public List<Integer> getMatchedFilterIndices() {
       // For encapsulation, copy out the output list
       List<Integer> copyOfMatchedFilterIndices = new ArrayList<Integer>();
@@ -76,6 +97,10 @@ public class ExpenseTrackerModel {
       return false;
   }
 
+  /**
+   * Returns the number of listeners present in the list
+   * @return total number of listeners
+   */
   public int numberOfListeners() {
       // For testing, this is one of the methods.
       //
@@ -83,6 +108,11 @@ public class ExpenseTrackerModel {
       return 0;
   }
 
+  /**
+   * Function to check whether a listener is already present in the list or not
+   * @param listener Listener whose presence is being checked
+   * @return boolean value indicating the result
+   */
   public boolean containsListener(ExpenseTrackerModelListener listener) {
       // For testing, this is one of the methods.
       //
@@ -90,6 +120,9 @@ public class ExpenseTrackerModel {
       return false;
   }
 
+  /**
+   * Update the state of the listeners
+   */
   protected void stateChanged() {
       // For the Observable class, this is one of the methods.
       //

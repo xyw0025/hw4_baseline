@@ -16,6 +16,9 @@ import model.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Aplying Observer design strategy - MyObserver class
+ */
 public class ExpenseTrackerView extends JFrame implements ExpenseTrackerModelListener {
 
   private JTable transactionsTable;
